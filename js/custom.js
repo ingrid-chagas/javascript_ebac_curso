@@ -2,6 +2,7 @@
 // jQuery( function($){
 $(document).ready(function(){
 
+   //alteracao carrossel responsivo
    $('.owl-carousel').owlCarousel({
       loop:true,
       margin:10,
@@ -45,6 +46,8 @@ $(document).ready(function(){
    // $('.featured-item:first h4').show()
    // $('.featured-item:first h4').fadeIn(2000)
    // $('.featured-item:first h4').fadeOut()
+
+   //alteracao layout botao buscar
    $('.btn-outline-success').css({
       'color': '#3a8bcd',
       'background-color': '#fff',
@@ -67,13 +70,11 @@ $(document).ready(function(){
       })
    });
    $('.featured-item h4').dblclick( function(){
-
       $(this).css({
          'color': '#f00',
          'background': '#ff0',
          'font-weight': '100',
       });
-
    });
 
    /*
@@ -87,6 +88,7 @@ $(document).ready(function(){
 
    });
    
+   //abrir e fechar o menu responsivo
    $('.navbar-toggler').click(function(){
       if($('.navbar-toggler').attr('aria-expanded') === "false"){
          $('#navbarResponsive').show();

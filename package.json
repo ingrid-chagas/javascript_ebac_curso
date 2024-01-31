@@ -1,0 +1,23 @@
+{
+  "name": "javascript_ebac_curso",
+  "version": "1.0.0",
+  "description": "\"write less, do more\"\r - Biblioteca de JavaScript\r - Carregamento rápido\r - Converte para JS (ECMAScript) padrão \r - Crossbrowser: funciona em diversos navegadores\r - Escrever um código para todos os navegadores\r - Rápida captura e transmissão de dados \r - Manipula o DOM\r - Facilita a consulta (query) a elementos\r - Extensível com plugins\r - Instalação: https://jquery.com/download/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ingrid Mendes",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "jquery": "^3.7.1"
+  }
+}

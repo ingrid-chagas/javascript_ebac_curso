@@ -1,3 +1,6 @@
 node_modules
 package-lock.json
 vendor
+dist
+
+# rodar git rm -r --cached dist(ultima pasta incluida no .gitignore)

@@ -203,6 +203,10 @@ a {
 	outline: none;
 }
 
+.alert {
+    --bs-alert-bg: #ffc107!important;
+}
+
 
 
 /* Subscribe Style */

@@ -4,12 +4,16 @@ import cssmin from 'gulp-cssmin';
 import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 import image from 'gulp-image'; //npm install gulp-image --save-dev(apenas para desenvolvimento) 
+import stripCss  from 'gulp-strip-css-comments';
 
 
 //gulp trabalha com tasks
 
 gulp.task('styles', function(){
-    return gulp.src('./vendor/**/*.css')
+    return gulp.src(['./node_modules/bootstrap/dist/css/bootstrap.css', 
+                        './vendor/owl/css/owl.css',
+                        './src/css/style.css'])
+                .pipe(stripCss()) // remove comentários
                 .pipe(concat('libs.css')) //primeiro concatena
                 .pipe(cssmin()) //depois minifica o que foi concatenado
                 .pipe(rename({ suffix: '.min' })) //lib.min.css
@@ -18,13 +22,21 @@ gulp.task('styles', function(){
 });
 
 gulp.task('scripts', function(){
-    return gulp.src('./vendor/**/*.js')
+    return gulp.src(['./node_modules/jquery/dist/jquery.js',
+                    './node_modules/bootstrap/dist/js/bootstrap.js',
+                    './vendor/owl/js/owl.js',
+                    './vendor/jquery/jquery-mask/jquery.mask.js',
+                    './src/js/custom.js'
+                    //'./vendor/**/*.js'
+                ])
+                .pipe(stripCss()) // remove comentários
                 .pipe(concat('libs.js'))
                 .pipe(uglify())
                 .pipe(rename({ suffix: '.min' })) //libs.min.js
                 .pipe(gulp.dest('./dist/js'))
 });
 
+//otimizacao de imagens
 gulp.task('images', function(){
     return gulp.src('./src/images/*')
                 .pipe(image({
@@ -39,4 +51,12 @@ gulp.task('images', function(){
                     quiet: true
                 }))
                 .pipe(gulp.dest('./dist/images'))
-})
+});
+
+//apos npm install apenas rodas 'gulp'
+gulp.task('default', gulp.series('styles', 'scripts', 'images'));
+
+//listener para qualquer alteração no src ele roda o gulpfile
+gulp.task('watch', function() {
+    gulp.watch('./src/*.js', ['styles', 'scripts', 'images']);
+});

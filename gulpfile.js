@@ -5,13 +5,16 @@ import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 import image from 'gulp-image'; //npm install gulp-image --save-dev(apenas para desenvolvimento) 
 import stripCss  from 'gulp-strip-css-comments';
+import fontmin from 'gulp-fontmin';
 
 
 //gulp trabalha com tasks
 
 gulp.task('styles', function(){
-    return gulp.src(['./node_modules/bootstrap/dist/css/bootstrap.css', 
-                        './vendor/owl/css/owl.css',
+    return gulp.src(['./node_modules/bootstrap/dist/css/bootstrap.css',
+                        'node_modules/slick-carousel/slick/slick.css' ,
+                        'node_modules/slick-carousel/slick/slick-theme.css' ,
+                        // './vendor/owl/css/owl.css',
                         './src/css/style.css'])
                 .pipe(stripCss()) // remove comentários
                 .pipe(concat('libs.css')) //primeiro concatena
@@ -24,8 +27,9 @@ gulp.task('styles', function(){
 gulp.task('scripts', function(){
     return gulp.src(['./node_modules/jquery/dist/jquery.js',
                     './node_modules/bootstrap/dist/js/bootstrap.js',
-                    './vendor/owl/js/owl.js',
-                    './vendor/jquery/jquery-mask/jquery.mask.js',
+                    "./node_modules/slick-carousel/slick/slick.js",
+                    // './vendor/owl/js/owl.js',
+                    // './vendor/jquery/jquery-mask/jquery.mask.js',
                     './src/js/custom.js'
                     //'./vendor/**/*.js'
                 ])
@@ -53,8 +57,19 @@ gulp.task('images', function(){
                 .pipe(gulp.dest('./dist/images'))
 });
 
+gulp.task('fontsmin', function () {
+    return gulp.src('node_modules/slick-carousel/slick/fonts/*')
+        .pipe(fontmin())
+        .pipe(gulp.dest('./dist/css/fonts'));
+});
+
+gulp.task('slick_gif', function () {
+    return gulp.src('node_modules/slick-carousel/slick/*.gif')
+        .pipe(gulp.dest('./dist/css'));
+});
+
 //apos npm install apenas rodas 'gulp'
-gulp.task('default', gulp.series('styles', 'scripts', 'images'));
+gulp.task('default', gulp.series('styles', 'scripts', 'fontsmin', 'images', 'slick_gif'));
 
 //listener para qualquer alteração no src ele roda o gulpfile
 gulp.task('watch', function() {

@@ -1,36 +1,57 @@
 // instancia jquery e evita conflitos
 // jQuery( function($){
 $(document).ready(function(){
-   
-   //alteracao carrossel responsivo
-   $('.owl-carousel').owlCarousel({
-      loop:true,
-      margin:10,
-      responsiveClass:true,
-      responsive:{
-         0:{
-            items:1,
-            nav:false
-         },
-         600:{
-            items:3,
-            nav:false
-         },
-         1000:{
-            items:5,
-            nav:false,
-            loop:false
-         }
-      }
-   });
+
+   // $(".slider").not('.slick-initialized').slick();
+   $('.multiple-items').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      arrows: true,
+      dots: true
+    });
+
+   // $('.slider .featured-item').slick({
+   //    dots: true,
+   //    infinite: true,
+   //    speed: 300,
+   //    slidesToShow: 4,
+   //    slidesToScroll: 4,
+   //    responsive: [
+   //      {
+   //        breakpoint: 1024,
+   //        settings: {
+   //          slidesToShow: 3,
+   //          slidesToScroll: 3,
+   //          infinite: true,
+   //          dots: true
+   //        }
+   //      },
+   //      {
+   //        breakpoint: 600,
+   //        settings: {
+   //          slidesToShow: 2,
+   //          slidesToScroll: 2
+   //        }
+   //      },
+   //      {
+   //        breakpoint: 480,
+   //        settings: {
+   //          slidesToShow: 1,
+   //          slidesToScroll: 1
+   //        }
+   //      }
+   //      // You can unslick at a given breakpoint now by adding:
+   //      // settings: "unslick"
+   //      // instead of a settings object
+   //    ]
+   //  });
    
    let titulos = $('h4') // tag
    
    let itens = $('.featured-item') // class
    
    let destaques = $('#featured') // id
-   
-   console.log(titulos.first());
    
    // Configuração de produtos
    
@@ -69,13 +90,7 @@ $(document).ready(function(){
          'border-color': '#3a8bcd'
       })
    });
-   $('.featured-item h4').dblclick( function(){
-      $(this).css({
-         'color': '#f00',
-         'background': '#ff0',
-         'font-weight': '100',
-      });
-   });
+   
    
    /*
    * Manipulação de eventos

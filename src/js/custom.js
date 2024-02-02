@@ -24,11 +24,11 @@ $(document).ready(function(){
       }
    });
    
-   let titulos = $('h4') // tag
+   let titulos = $('h4');// tag
    
-   let itens = $('.featured-item') // class
+   let itens = $('.featured-item'); // class
    
-   let destaques = $('#featured') // id
+   let destaques = $('#featured'); // id
    
    console.log(titulos.first());
    
@@ -36,7 +36,7 @@ $(document).ready(function(){
    
    $('.featured-item a').addClass('btn btn-dark stretch-link');
    
-   $('.featured-item:first h4').append('<span class="badge bg-secondary">Novo</span>')
+   $('.featured-item:first h4').append('<span class="badge bg-secondary">Novo</span>');
    // $('.featured-item:first h4').start('<span class="badge bg-secondary">Novo</span>')
    // $('.featured-item:first h4').html('<span class="badge bg-secondary">Novo</span>')
    // $('.featured-item:first h4').addClass('active')
@@ -59,7 +59,7 @@ $(document).ready(function(){
          'color': '#fff',
          'background-color': '#3a8bcd',
          'border-color': '#3a8bcd'
-      })
+      });
    });
    
    $('.btn-outline-success').mouseout(function(){
@@ -67,7 +67,7 @@ $(document).ready(function(){
          'color': '#3a8bcd',
          'background-color': '#fff',
          'border-color': '#3a8bcd'
-      })
+      });
    });
    $('.featured-item h4').dblclick( function(){
       $(this).css({
@@ -92,9 +92,8 @@ $(document).ready(function(){
          $("button").attr("aria-expanded","false");
       }
    });
+   
 
-   
-   
    /*
     * Ouvinte de eventos .nav-modal-open
     */
@@ -112,9 +111,8 @@ $(document).ready(function(){
 
       myModal.show();
 
-   })
+   }); //teste
    
-
    /*
     * TODO: incrementar a validação
     * - checar se o nome é válido (mais de 2 caracteres)
@@ -200,46 +198,45 @@ $(document).ready(function(){
          return false;
       } else {
          $(".toast").toast("hide");
-         $(this).submit();
+         // $(this).submit();
       }
 
-   })
+   });
 
    $('body').on('blur', '#nome', function(){
       validate($(this));
-   })
+   });
 
    $('body').on('blur', '#email', function(){
       validate($(this));
-   })
-
+   });
 
    $('body').on('focus', '#date', function(){
       $(this).datepicker();
-   })
+   });
 
    $('body').on('blur', '#date', function(){
       validate($(this))
       $(this).mask('00/00/0000');
-   }) 
+   });
 
    $('body').on('blur', '#time', function(){
       validate($(this))
       $(this).mask('00:00');
-   })
+   });
 
    $('body').on('blur', '#cep', function(){
       validate($(this))
       $(this).mask('00000-000');
-   })
+   });
 
    $('body').on('blur', '#phone', function(){
       validate($(this))
       $(this).mask('00000-0000');
-   })
+   });
 
    $('body').on('blur', '#cpf', function(){
       validate($(this))
       $(this).mask('000.000.000-00');
-   })
+   });
 })

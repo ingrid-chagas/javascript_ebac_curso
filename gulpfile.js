@@ -46,7 +46,7 @@ gulp.task('scripts', function(){
                     presets: ['@babel/env']
                 }))
                 .pipe(concat('libs.js'))
-                // .pipe(uglify())
+                .pipe(uglify())
                 .pipe(rename({ suffix: '.min' })) //libs.min.js
                 .pipe(gulp.dest('./dist/js'))
 });

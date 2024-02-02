@@ -57,12 +57,14 @@ gulp.task('images', function(){
                 .pipe(gulp.dest('./dist/images'))
 });
 
+//css do slick-carousel quebra no dist sem as fonts
 gulp.task('fontsmin', function () {
     return gulp.src('node_modules/slick-carousel/slick/fonts/*')
         .pipe(fontmin())
         .pipe(gulp.dest('./dist/css/fonts'));
 });
 
+//gif do slcik-carousel quebrava quando minify
 gulp.task('slick_gif', function () {
     return gulp.src('node_modules/slick-carousel/slick/*.gif')
         .pipe(gulp.dest('./dist/css'));

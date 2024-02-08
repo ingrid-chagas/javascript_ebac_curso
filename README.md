@@ -1,28 +1,55 @@
-# jQuery
-"write less, do more"
-- Biblioteca de JavaScript
-- Carregamento rápido
-- Converte para JS (ECMAScript) padrão 
-- Crossbrowser: funciona em diversos navegadores
-- Escrever um código para todos os navegadores
-- Rápida captura e transmissão de dados 
-- Manipula o DOM
-- Facilita a consulta (query) a elementos
-- Extensível com plugins
-- Instalação: https://jquery.com/download/
+## Objetos
+- Fórmula / Molde dinâmico
+- Coleção de propriedas (atribuitos)
+- Associáveis (chave / valor)
+- Relação com objetos da vida real
+- Atributos: cor, forma, material, peso, identificação, etc.
 
-## Seletores
-### Simples
-```
-    $('h4') // tag
-    $('.featured-item') // class
-    $('#featured') // id
-```
+## Programação Orientada a Objetos (OOP) 
+- Paradigma / Modelo de programação
+- Forma diferente de "pensar" no código
+- Padrão utilizado em linguagens com Java, C#, PHP...
 
-### Compostos 
-```
-    $('h4, h6')
+## Classes
+- Introduzidas no ECMAScript 2015
+- Simplificações
+- Herança
+- Frameworks
+- De fato são "funções especiais"
+- Método construtor: constructor
 
-    $('div h4')
+## Arrow Functions
+ - Multiplos parâmetros: (p1, p2, ..., pN) => { expressao }
+ - Expressão / Algoritmo simples: (p1, p2) => expressao 
+ - Único parâmetro: p1 => { expressao }
 
-```
+ # Manipulação de Dados
+
+- JavaScript trabalha com tipagem dinâmica (números, textos, strings, objetos, arrays)
+ `let x = 0` 
+ `x = 'a'`
+
+## Arrays 
+- filter
+- forEach
+- reduce
+- map
+
+## Export e Import
+- São recursos do EcmaScript Modules
+
+## TypeScript
+https://www.typescriptlang.org/
+### Tipos de dados
+- boolean
+- string ("Texto", 'exemplo')
+- arrays
+- tuple
+
+## JS Linter / ES List
+
+
+## Framework
+- React 
+- Vue.js (https://vuejs.org/)
+- Angular (https://angular.io/)

@@ -9,30 +9,61 @@
 <body>
     <div id="main"></div>
 
-    <div id="app">
-        {{ message }}
-        Meu nome não é {{ nome }}
-
-        <span v-bind:title="message2">
-            Hover your mouse over me for a few seconds
-            to see my dynamically bound title!
-        </span>
-
-        <span v-if="seen">Now you see me</span>
-    </div>
+    <ul id="exercicio">
+        <li v-for="categoria in categorias">
+            {{ categoria.aluno }}
+        </li>
+    </ul>
 
     <!-- <script src="./exams.js" type="module"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
     <script>
-        var app = new Vue({
-                el: '#app',
-                data: {
-                    message: 'Hello Vue!',
-                    nome: 'Jhonny',
-                    message2: 'You loaded this page on ' + new Date().toLocaleString(),
-                    seen: true
-                }
+
+        let teste = new Vue({
+            el: '#exercicio',
+            data: {
+
+                categorias: [
+                    { aluno: 'Ana', notas: [8,7,9,10,9], turno: 'Matutino', periodo: '5', qtdMateria: 5 },
+                    { aluno: 'Maria', notas: [8,7,6,6,9,6], turno: 'Noturno', periodo: '6', qtdMateria: 6 },
+                    { aluno: 'Jurema', notas: [5,6.3,8,7,9], turno: 'Noturno', periodo: '10', qtdMateria: 5 },
+                    { aluno: 'Jurema', notas: [4,6.4,7,9,6], turno: 'Noturno', periodo: '10', qtdMateria: 5 },
+                    { aluno: 'Ismael', notas: [5,5.5,7,6], turno: 'Matutino', periodo: '8', qtdMateria: 4 },
+                    { aluno: 'Ciclana', notas: [6,7,7.2,6,5,8,7], turno: 'Vespertino', periodo: '2', qtdMateria: 7 },
+                    { aluno: 'Fulana', notas: [7,8,7], turno: 'Vespertino', periodo: '9', qtdMateria: 3 }
+                ]
+            }
+        });
+
+        const arrayFiltrado = teste.categorias.filter(function (categoria) {
+            console.log(categoria.turno.match(/Matutino/));
+            return categoria.turno.match(/Matutino/) ? categoria.notas : '';
+        });
+
+        const arrayReduce = teste.categorias.reduce((total, turno)=>{
+            total[turno.turno] = (total[turno.turno] || 0) + 1 ;
+            return total;
+            // return {qtdMateria: total.qtdMateria + quantidade.qtdMateria};
+        },{});
+        console.log(arrayReduce);
+
+        let media = 0;
+        let soma = 0;
+        const arrayForeach = arrayFiltrado.forEach(item=>{
+            item.notas.forEach(nota=>{
+                soma +=nota;
             })
+            console.log(media = soma/item.notas.length);
+            media = soma/item.notas.length;
+            soma=0;
+            return media;
+        });
+
+        const arrayMap = teste.categorias.map((categoria)=>{
+            return categoria.qtdMateria * 10;
+        });
+        console.log(arrayMap);
     </script>
 </body>
 </html>
